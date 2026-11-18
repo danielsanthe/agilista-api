@@ -1,4 +1,3 @@
-
 """
 adicionar_categoria_id_em_produtos_globais
 
@@ -42,13 +41,12 @@ def upgrade() -> None:
     - Referencia categorias.id_categoria.
     - Impede a exclusão de uma categoria ainda utilizada.
     """
+    bind = op.get_bind()
+    recreate_mode = 'always' if bind.dialect.name == 'sqlite' else 'auto'
 
-    # O batch_alter_table permite ao Alembic realizar alterações
-    # estruturais compatíveis com o SQLite, recriando a tabela
-    # quando necessário e preservando sua estrutura.
     with op.batch_alter_table(
         'produtos_globais',
-        recreate='always'
+        recreate=recreate_mode
     ) as batch_op:
 
         # Adiciona a identificação obrigatória da categoria.
@@ -80,12 +78,12 @@ def downgrade() -> None:
 
     A coluna e sua chave estrangeira são removidas.
     """
+    bind = op.get_bind()
+    recreate_mode = 'always' if bind.dialect.name == 'sqlite' else 'auto'
 
-    # Utiliza batch_alter_table para manter compatibilidade
-    # com as operações de alteração estrutural do SQLite.
     with op.batch_alter_table(
         'produtos_globais',
-        recreate='always'
+        recreate=recreate_mode
     ) as batch_op:
 
         # Remove primeiro a chave estrangeira.

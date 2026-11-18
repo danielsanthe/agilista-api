@@ -1,0 +1,860 @@
+/* ============================================================================
+   AGILISTA ADMIN — DESIGN SYSTEM ESPELHADO DO APP FLUTTER (AppTheme)
+   ============================================================================ */
+
+:root {
+  /* Paleta Oficial (Extraída de AppTheme) */
+  --primary-blue: #1E3A8A;        /* Azul Escuro Primário */
+  --primary-blue-light: #2563EB;  /* Azul Interativo / Hover */
+  --accent-orange: #F97316;       /* Laranja Secundário / Destaque */
+  --accent-orange-hover: #EA580C; /* Laranja Interativo */
+
+  --background-light: #F8FAFC;    /* Fundo Principal da Tela */
+  --surface-white: #FFFFFF;       /* Fundo dos Cards e Inputs */
+
+  --text-dark: #1E293B;           /* Texto Principal */
+  --text-muted: #64748B;          /* Texto Secundário / Placeholders */
+  --border-light: #E2E8F0;        /* Bordas Suaves */
+
+  /* Status */
+  --status-success: #16A34A;      /* Ativo / Dentro do Limite */
+  --status-warning: #D97706;      /* Alerta */
+  --status-danger: #DC2626;       /* Excluir / Erro */
+  --status-danger-hover: #B91C1C;
+}
+
+* {
+  box-sizing: border-box;
+  font-family: 'Roboto', system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+body {
+  margin: 0;
+  background: var(--background-light);
+  color: var(--text-dark);
+  font-size: 14px;
+}
+
+/* ============================================================================
+   TELA DE LOGIN (Espelho do ElevatedButton e CardTheme)
+   ============================================================================ */
+.login-container {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  background: var(--background-light);
+}
+
+.card {
+  background: var(--surface-white);
+  border: 1px solid var(--border-light);
+  border-radius: 10px;
+  padding: 2rem;
+  width: 100%;
+  max-width: 420px;
+  box-shadow: 0 2px 8px rgba(30, 58, 138, 0.06);
+}
+
+.login-header {
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
+.login-logo {
+  max-height: 68px;
+  width: auto;
+  margin-bottom: 0.75rem;
+  object-fit: contain;
+}
+
+.login-header h1 {
+  margin: 0;
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--primary-blue);
+}
+
+.login-header p {
+  color: var(--text-muted);
+  font-size: 13px;
+  margin: 0.35rem 0 0;
+}
+
+/* ============================================================================
+   CAMPOS DE ENTRADA (InputDecorationTheme)
+   ============================================================================ */
+.form-group {
+  margin-bottom: 1rem;
+}
+
+label {
+  display: block;
+  font-size: 14px;
+  font-weight: 600;
+  margin-bottom: 0.35rem;
+  color: var(--text-dark);
+}
+
+input, select {
+  width: 100%;
+  height: 44px;
+  padding: 0 16px;
+  border: 1px solid var(--border-light);
+  border-radius: 8px;
+  font-size: 14px;
+  background: var(--surface-white);
+  color: var(--text-dark);
+  transition: border-color 0.15s ease;
+}
+
+input::placeholder {
+  color: var(--text-muted);
+}
+
+input:focus, select:focus {
+  outline: none;
+  border: 2px solid var(--primary-blue);
+  padding: 0 15px; /* Compensa a borda de 2px sem saltar o layout */
+}
+
+/* ============================================================================
+   BOTÕES (ElevatedButton, OutlinedButton e orangeButtonStyle)
+   ============================================================================ */
+button {
+  background: var(--primary-blue);
+  color: #FFFFFF;
+  border: none;
+  height: 46px;
+  padding: 0 1.25rem;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  cursor: pointer;
+  transition: background-color 0.15s ease, transform 0.05s ease;
+}
+
+button:hover {
+  background: var(--primary-blue-light);
+}
+
+button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* Botões de Ação em Laranja Sólido (orangeButtonStyle) */
+button.btn-orange,
+#form-login button[type="submit"] {
+  background: var(--accent-orange);
+  color: #FFFFFF;
+}
+
+button.btn-orange:hover,
+#form-login button[type="submit"]:hover {
+  background: var(--accent-orange-hover);
+}
+
+/* Botão Secundário Neutro (Cancelar Edição) */
+button.btn-secondary {
+  background: var(--surface-white);
+  color: var(--text-muted);
+  border: 1px solid var(--border-light);
+  padding: 0 0.9rem;
+}
+
+button.btn-secondary:hover {
+  background: #F1F5F9;
+  color: var(--text-dark);
+}
+
+/* Botão Secundário / Outline Laranja (outlinedButtonTheme) */
+button.btn-outline {
+  background: var(--surface-white);
+  color: var(--accent-orange);
+  border: 1.5px solid var(--accent-orange);
+  height: 40px;
+}
+
+button.btn-outline:hover {
+  background: #FFF7ED;
+}
+
+/* Botão de Edição na Tabela */
+button.btn-edit {
+  background: var(--primary-blue);
+  height: 34px;
+  padding: 0 0.85rem;
+  font-size: 12px;
+}
+
+button.btn-edit:hover {
+  background: var(--primary-blue-light);
+}
+
+/* Botão de Exclusão (statusDanger) */
+button.btn-danger {
+  background: var(--status-danger);
+  height: 34px;
+  padding: 0 0.85rem;
+  font-size: 12px;
+}
+
+button.btn-danger:hover {
+  background: var(--status-danger-hover);
+}
+
+/* Botão Ícone Sanduíche no Cabeçalho */
+button.btn-hamburger {
+  background: var(--background-light);
+  color: var(--primary-blue);
+  border: 1px solid var(--border-light);
+  width: 40px;
+  height: 40px;
+  padding: 0;
+  font-size: 18px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+button.btn-hamburger:hover {
+  background: #EFF6FF;
+  border-color: var(--primary-blue);
+}
+
+/* ============================================================================
+   CABEÇALHO SUPERIOR (AppBarTheme)
+   ============================================================================ */
+header {
+  background: var(--surface-white);
+  border-bottom: 1px solid var(--border-light);
+  padding: 0.85rem 1.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: sticky;
+  top: 0;
+  z-index: 30;
+}
+
+.brand-area {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+}
+
+.header-logo {
+  height: 38px;
+  width: auto;
+  object-fit: contain;
+}
+
+.brand-title {
+  color: var(--primary-blue);
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.brand-subtitle {
+  color: var(--accent-orange);
+  font-weight: 600;
+  font-size: 14px;
+}
+
+.user-area {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  color: var(--text-dark);
+}
+
+/* ============================================================================
+   ESTRUTURA PRINCIPAL COM MENU LATERAL RETRÁTIL (SIDEBAR)
+   ============================================================================ */
+.layout-wrapper {
+  display: flex;
+  min-height: calc(100vh - 67px);
+}
+
+.sidebar {
+  width: 270px;
+  background: var(--surface-white);
+  border-right: 1px solid var(--border-light);
+  padding: 1.25rem 0.85rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+  flex-shrink: 0;
+  transition: width 0.25s ease, padding 0.25s ease, opacity 0.2s ease;
+  overflow: hidden;
+}
+
+/* Estado Recolhido do Menu Lateral */
+.sidebar.collapsed {
+  width: 0;
+  padding-left: 0;
+  padding-right: 0;
+  border-right: none;
+  opacity: 0;
+}
+
+.sidebar-section-title {
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  color: var(--text-muted);
+  padding: 0 0.75rem 0.5rem;
+  white-space: nowrap;
+}
+
+.sidebar-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+  width: 100%;
+  height: 44px;
+  padding: 0 0.85rem;
+  border-radius: 8px;
+  font-size: 13.5px;
+  font-weight: 600;
+  letter-spacing: 0;
+  text-align: left;
+  white-space: nowrap;
+}
+
+.sidebar-item:not(.active) {
+  background: transparent;
+  color: var(--text-dark);
+}
+
+.sidebar-item:not(.active):hover {
+  background: var(--background-light);
+  color: var(--primary-blue);
+}
+
+.sidebar-item.active {
+  background: var(--primary-blue);
+  color: #FFFFFF;
+}
+
+.sidebar-count {
+  font-size: 12px;
+  font-weight: 700;
+  padding: 0.15rem 0.55rem;
+  border-radius: 999px;
+  background: var(--background-light);
+  color: var(--text-muted);
+}
+
+.sidebar-item.active .sidebar-count {
+  background: rgba(255, 255, 255, 0.2);
+  color: #FFFFFF;
+}
+
+/* ============================================================================
+   PAINÉIS, FORMULÁRIO DE PRODUTOS E TABELAS (CardTheme)
+   ============================================================================ */
+main {
+  flex: 1;
+  max-width: 1320px;
+  margin: 1.75rem auto;
+  padding: 0 1.5rem;
+  width: 100%;
+}
+
+.panel {
+  background: var(--surface-white);
+  border: 1px solid var(--border-light);
+  border-radius: 10px;
+  padding: 1.5rem;
+  overflow-x: auto;
+  box-shadow: 0 1px 4px rgba(15, 23, 42, 0.04);
+}
+
+.panel-header-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.panel-header-row h2,
+.panel h2 {
+  margin: 0 0 1rem;
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--primary-blue);
+}
+
+.panel-header-row h2 {
+  margin-bottom: 0;
+}
+
+.editing-pill {
+  background: #FFEDD5;
+  color: var(--accent-orange);
+  font-size: 12px;
+  font-weight: 700;
+  padding: 0.3rem 0.75rem;
+  border-radius: 999px;
+}
+
+/* Grid otimizado com campo "Nome Oficial do Produto" mais largo (2.8fr) */
+.grid-form {
+  display: grid;
+  grid-template-columns: 2.8fr 1.2fr 1.1fr 1.3fr auto;
+  gap: 0.75rem;
+  align-items: end;
+  background: var(--background-light);
+  padding: 1rem;
+  border-radius: 8px;
+  border: 1px solid var(--border-light);
+  transition: border-color 0.2s ease, background-color 0.2s ease;
+}
+
+.grid-form.form-editing {
+  background: #FFF7ED;
+  border-color: var(--accent-orange);
+}
+
+.form-submit-group {
+  display: flex;
+  gap: 0.5rem;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1.25rem;
+}
+
+th, td {
+  text-align: left;
+  padding: 0.85rem 0.75rem;
+  border-bottom: 1px solid var(--border-light);
+  font-size: 14px;
+}
+
+th {
+  color: var(--primary-blue);
+  font-weight: 700;
+  background: var(--background-light);
+}
+
+tr:hover td {
+  background: #F1F5F9;
+}
+
+tr.row-editing td {
+  background: #FFF7ED;
+}
+
+.table-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+}
+
+/* Badges de Status */
+.badge {
+  padding: 0.25rem 0.65rem;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 700;
+  background: #DBEAFE;
+  color: var(--primary-blue);
+}
+
+.badge-admin {
+  background: #FFEDD5;
+  color: var(--accent-orange);
+}
+
+.alert {
+  padding: 0.75rem 1rem;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+  font-size: 14px;
+  background: #FEE2E2;
+  color: var(--status-danger);
+  border: 1px solid #FECACA;
+}
+
+/* ============================================================================
+   RESPONSIVIDADE (TABLET E MOBILE)
+   ============================================================================ */
+@media (max-width: 1100px) {
+  .grid-form {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .grid-form .campo-nome-produto {
+    grid-column: span 2;
+  }
+}
+
+@media (max-width: 768px) {
+  header {
+    padding: 0.75rem 1rem;
+  }
+
+  .sidebar {
+    position: fixed;
+    top: 67px;
+    left: 0;
+    bottom: 0;
+    z-index: 25;
+    box-shadow: 4px 0 16px rgba(15, 23, 42, 0.12);
+  }
+
+  main {
+    margin: 1.25rem auto;
+    padding: 0 1rem;
+  }
+
+  .grid-form {
+    grid-template-columns: 1fr;
+  }
+
+  .grid-form .campo-nome-produto {
+    grid-column: span 1;
+  }
+}
+
+/* ============================================================================
+   BARRA DE PESQUISA, FILTROS E PAGINAÇÃO 
+   ============================================================================ */
+.filter-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  align-items: end;
+  margin-top: 1.25rem;
+  padding: 0.95rem 1rem;
+  background: var(--surface-white);
+  border: 1px solid var(--border-light);
+  border-radius: 8px;
+}
+
+.filter-search {
+  flex: 2;
+  min-width: 260px;
+}
+
+.filter-category {
+  flex: 1;
+  min-width: 200px;
+}
+
+.pagination-bar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-top: 1.25rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--border-light);
+}
+
+.pagination-info,
+.pagination-page {
+  font-size: 13px;
+  color: var(--text-muted);
+}
+
+.pagination-controls {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.pagination-controls button {
+  height: 36px;
+  padding: 0 0.9rem;
+  font-size: 13px;
+}
+
+/* ============================================================================
+   RODAPÉ DO MENU LATERAL — ATALHO PARA DOCUMENTAÇÃO SWAGGER (/docs)
+   ============================================================================ */
+.sidebar-footer {
+  margin-top: auto;
+  padding-top: 1rem;
+  border-top: 1px solid var(--border-light);
+}
+
+a.sidebar-link-docs {
+  text-decoration: none;
+  color: var(--text-dark);
+  border: 1px dashed var(--border-light);
+  transition: all 0.15s ease;
+}
+
+a.sidebar-link-docs:hover {
+  background: #FFF7ED;
+  color: var(--accent-orange);
+  border-color: var(--accent-orange);
+}
+
+.sidebar-external-icon {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--accent-orange);
+}
+
+/* ============================================================================
+   SUB-ABAS ESTILO APP MOBILE (CONSULTA / CADASTRO), ALERTA DE SUCESSO
+   E CONTÊINER DE TABELA COM ROLAGEM INTERNA
+   ============================================================================ */
+
+/* Alerta Verde de Confirmação (Produto salvo / cadastrado com sucesso) */
+.alert-success {
+  padding: 0.85rem 1rem;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+  font-size: 14px;
+  font-weight: 600;
+  background: #DCFCE7;
+  color: var(--status-success);
+  border: 1px solid #86EFAC;
+}
+
+/* Barra de Abas Segmentadas (Estilo App Mobile) */
+.mobile-segmented-tabs {
+  display: flex;
+  gap: 0.5rem;
+  background: var(--background-light);
+  padding: 0.35rem;
+  border-radius: 10px;
+  border: 1px solid var(--border-light);
+  margin-bottom: 1.25rem;
+}
+
+.segmented-tab {
+  flex: 1;
+  height: 42px;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 0.2px;
+  transition: all 0.15s ease;
+}
+
+.segmented-tab:not(.active) {
+  background: transparent;
+  color: var(--text-muted);
+}
+
+.segmented-tab:not(.active):hover {
+  background: rgba(30, 58, 138, 0.06);
+  color: var(--primary-blue);
+}
+
+.segmented-tab.active {
+  background: var(--primary-blue);
+  color: #FFFFFF;
+  box-shadow: 0 2px 6px rgba(30, 58, 138, 0.2);
+}
+
+/* Card da Sub-aba Cadastro / Edição */
+.subtab-card {
+  background: var(--background-light);
+  border: 1px solid var(--border-light);
+  border-radius: 10px;
+  padding: 1.5rem;
+}
+
+.subtab-card.form-editing {
+  background: #FFF7ED;
+  border-color: var(--accent-orange);
+}
+
+.subtab-title {
+  margin: 0 0 1.25rem;
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--primary-blue);
+}
+
+.cadastro-form-layout {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.cadastro-row-3 {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr 1.5fr;
+  gap: 1rem;
+}
+
+.cadastro-actions {
+  display: flex;
+  gap: 0.75rem;
+  margin-top: 0.75rem;
+}
+
+.filter-buttons {
+  display: flex;
+  gap: 0.5rem;
+}
+
+/* Contêiner com rolagem interna para manter o cabeçalho da página fixo */
+.table-scroll-container {
+  max-height: 430px;
+  overflow-y: auto;
+  overflow-x: auto;
+  margin-top: 1.25rem;
+  border: 1px solid var(--border-light);
+  border-radius: 8px;
+}
+
+.table-scroll-container table {
+  margin-top: 0;
+}
+
+.table-scroll-container thead th {
+  position: sticky;
+  top: 0;
+  z-index: 5;
+  box-shadow: 0 1px 0 var(--border-light);
+}
+
+@media (max-width: 768px) {
+  .cadastro-row-3 {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+}
+
+/* ============================================================================
+   TRAVAMENTO DE VIEWPORT E ROLAGEM EXCLUSIVA NA TABELA DE PRODUTOS
+   ============================================================================ */
+
+/* Impede a rolagem global da página quando autenticado */
+html, body {
+  height: 100%;
+  overflow: hidden;
+}
+
+/* Mantém a tela de login rolável em telas muito pequenas */
+.login-container {
+  height: 100vh;
+  overflow-y: auto;
+}
+
+/* Estrutura principal ocupa exatamente a altura restante abaixo do header (67px) */
+.layout-wrapper {
+  display: flex;
+  height: calc(100vh - 67px);
+  overflow: hidden;
+}
+
+/* Área principal ajustada para caber 100% na altura da janela sem gerar scroll externo */
+main {
+  flex: 1;
+  max-width: 1320px;
+  margin: 0 auto;
+  padding: 1.25rem 1.5rem;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+/* Painel branco interno em coluna flexível para distribuir topo fixo + tabela rolável + rodapé fixo */
+.panel {
+  flex: 1;
+  min-height: 0; /* Essencial no CSS Flexbox para permitir que o filho interno encolha e role */
+  display: flex;
+  flex-direction: column;
+  background: var(--surface-white);
+  border: 1px solid var(--border-light);
+  border-radius: 10px;
+  padding: 1.25rem 1.5rem;
+  overflow: hidden;
+  box-shadow: 0 1px 4px rgba(15, 23, 42, 0.04);
+}
+
+/* Elementos fixos no topo do painel não encolhem */
+.panel-header-row,
+.mobile-segmented-tabs,
+.filter-bar,
+.pagination-bar,
+.alert,
+.alert-success {
+  flex-shrink: 0;
+}
+
+/* Contêiner da tabela ocupa todo o espaço vertical restante e rola apenas os itens */
+.table-scroll-container {
+  flex: 1;
+  min-height: 0;
+  max-height: none; /* Remove o limite fixo de 430px para se adaptar a qualquer monitor */
+  overflow-y: auto;
+  overflow-x: auto;
+  margin-top: 1rem;
+  border: 1px solid var(--border-light);
+  border-radius: 8px;
+}
+
+.table-scroll-container table {
+  margin-top: 0;
+}
+
+/* Mantém o cabeçalho da tabela (ID, Produto, EAN...) fixo no topo durante a rolagem */
+.table-scroll-container thead th {
+  position: sticky;
+  top: 0;
+  z-index: 5;
+  background: var(--background-light);
+  box-shadow: 0 1px 0 var(--border-light);
+}
+
+/* Em caso de abertura da aba Cadastro, permite rolagem interna caso a tela seja baixa */
+.subtab-card {
+  overflow-y: auto;
+}
+
+/* ============================================================================
+   BADGES DE STATUS DAS LISTAS E MODAL DE ITENS (ÁREA DO CLIENTE)
+   ============================================================================ */
+.badge-success {
+  background: #DCFCE7;
+  color: var(--status-success);
+}
+
+.badge-warning {
+  background: #FEF3C7;
+  color: var(--status-warning);
+}
+
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(15, 23, 42, 0.55);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.25rem;
+  z-index: 50;
+}
+
+.modal-box {
+  background: var(--surface-white);
+  border: 1px solid var(--border-light);
+  border-radius: 12px;
+  padding: 1.5rem;
+  width: 100%;
+  max-width: 920px;
+  box-shadow: 0 12px 32px rgba(15, 23, 42, 0.22);
+}
